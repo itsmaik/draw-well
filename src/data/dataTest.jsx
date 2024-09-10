@@ -3,8 +3,11 @@ const placeholder = ('https://placehold.co/300');
 export const CARD_CONTENT = [
   {
     image: placeholder,
-    title: 'Title',
+    title: 'Apple',
     description:
-      'Small description',
+      'Iphone 11 (product red) 250GB ',
+    discount: '30%',
+    originalPrice: 'R$ 55,90',
+    discountedPrice: 'R$ 38,90',
   },
 ];
