@@ -22,6 +22,7 @@
 }
 
 body {
+  margin: 0 auto;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -29,9 +30,6 @@ body {
 }
 
 section {
-  align-items: center;
-  justify-content: center;
-  max-width: 1440px;
   width: 100%;
   margin: 4rem 0rem;
 }
