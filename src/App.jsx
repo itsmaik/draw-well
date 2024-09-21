@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/Home";
+import Home from "./pages/Home";
 import Layout from "./layout/Layout";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </Router>
@@ -15,4 +15,3 @@ function App() {
 }
 
 export default App;
-
