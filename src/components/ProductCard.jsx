@@ -6,7 +6,7 @@ function ProductCard({ image, title, description, discount, price, discountedPri
         <img
           src={image}
           alt={title}
-          className="w-full max-h-52 object-cover"
+          className="w-full min-h-52 max-h-52 object-cover"
         />
         {/* Discount Badge */}
         {discount && (
@@ -22,10 +22,17 @@ function ProductCard({ image, title, description, discount, price, discountedPri
         <h2 className="text-lg font-semibold">{description}</h2>
 
         {/* Price Section */}
+        {discountedPrice ? (
+          <div className="mt-2">
+            <p className="text-gray-400 line-through">{price}</p>
+            <p className="text-lg font-bold text-red-600">{discountedPrice}</p>
+          </div>
+        )
+        :
         <div className="mt-2">
-          <p className="text-gray-400 line-through">{price}</p>
-          <p className="text-lg font-bold text-red-600">{discountedPrice}</p>
+          <p className="text-lg font-bold text-black-600">{price}</p>
         </div>
+        }
       </div>
     </div>
   );

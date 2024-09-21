@@ -1,13 +1,9 @@
 import ProductCard from "./ProductCard";
 import useFetch from "../hooks/useFetch";
+import calculateDiscount from "../utils/calculateDiscount"
 
 
 export default function DisplayAll() {
-
-  function Discount(price, discount) {
-    const res = (price - discount) / price * 100;
-    return res.toFixed(0)
-  }
 
   const { data: products, loading, error } = useFetch();
   
@@ -23,9 +19,9 @@ export default function DisplayAll() {
           image={product.image.url}
           title={product.title}
           description={product.description}
-          discount={`${Discount(product.price, product.discountedPrice)}% off`}
+          discount={product.price > product.discountedPrice && `${calculateDiscount(product.price, product.discountedPrice)}% off`}
           price={`$${product.price}`}
-          discountedPrice={`$${product.discountedPrice}`}
+          discountedPrice={product.price > product.discountedPrice &&  `$${product.discountedPrice}`}
         />
       ))}
     </>
