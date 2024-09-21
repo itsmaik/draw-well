@@ -1,5 +1,4 @@
-
-function ProductCard({image, title, description, discount, originalPrice, discountedPrice}) {
+function ProductCard({ image, title, description, discount, price, discountedPrice }) {
   return (
     <div className="border rounded-lg shadow-lg max-w-xs p-4">
       {/* Product Image */}
@@ -7,12 +6,14 @@ function ProductCard({image, title, description, discount, originalPrice, discou
         <img
           src={image}
           alt={title}
-          className="w-full h-auto object-contain"
+          className="w-full max-h-52 object-cover"
         />
         {/* Discount Badge */}
-        <span className="absolute top-2 right-2 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-full">
-          {discount}
-        </span>
+        {discount && (
+          <span className="absolute top-2 right-2 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-full">
+            {discount}
+          </span>
+        )}
       </div>
 
       {/* Product Details */}
@@ -22,7 +23,7 @@ function ProductCard({image, title, description, discount, originalPrice, discou
 
         {/* Price Section */}
         <div className="mt-2">
-          <p className="text-gray-400 line-through">{originalPrice}</p>
+          <p className="text-gray-400 line-through">{price}</p>
           <p className="text-lg font-bold text-red-600">{discountedPrice}</p>
         </div>
       </div>
