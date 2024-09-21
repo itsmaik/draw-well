@@ -1,21 +1,14 @@
-import ProductCard from "../components/ProductCard";
-import { CARD_CONTENT } from "../data/dataTest";
-import SectionImg from "../components/SectionImg";
+import DisplayAll from "../components/DisplayAll";
 
-function HomePage() {
+function Home() {
+
   return (
     <main>
-      <section className="flex gap-6">
-        <ProductCard {...CARD_CONTENT[0]} />
-        <ProductCard {...CARD_CONTENT[0]} />
-        <ProductCard {...CARD_CONTENT[0]} />
-        <ProductCard {...CARD_CONTENT[0]} />
-      </section>
-      <section>
-        <SectionImg />
+      <section className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 justify-items-center">
+        <DisplayAll />
       </section>
     </main>
   );
 }
 
-export default HomePage;
+export default Home;
