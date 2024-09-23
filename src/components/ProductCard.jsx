@@ -1,12 +1,12 @@
 function ProductCard({ image, title, description, discount, price, discountedPrice }) {
   return (
-    <div className="border rounded-lg shadow-lg max-w-xs p-4">
+    <div className=" bg-stone-50 max-w-xs hover:scale-105 ease-in-out duration-500">
       {/* Product Image */}
       <div className="relative">
         <img
           src={image}
           alt={title}
-          className="w-full min-h-52 max-h-52 object-cover"
+          className="w-full min-h-72 max-h-72 object-cover rounded-md"
         />
         {/* Discount Badge */}
         {discount && (
@@ -17,9 +17,9 @@ function ProductCard({ image, title, description, discount, price, discountedPri
       </div>
 
       {/* Product Details */}
-      <div className="mt-4">
+      <div className="mt-4 px-2">
         <p className="text-gray-500 text-sm">{title}</p>
-        <h2 className="text-lg font-semibold">{description}</h2>
+        <h2 className="text-gray-800 font-semibold">{description}</h2>
 
         {/* Price Section */}
         {discountedPrice ? (
@@ -39,3 +39,4 @@ function ProductCard({ image, title, description, discount, price, discountedPri
 }
 
 export default ProductCard;
+
