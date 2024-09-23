@@ -1,11 +1,12 @@
 import ProductCard from "./ProductCard";
-import useFetch from "../hooks/useFetch";
 import calculateDiscount from "../utils/calculateDiscount"
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductProvider";
 
 
 export default function DisplayAll() {
 
-  const { data: products, loading, error } = useFetch();
+  const { searchResults, loading, error } = useContext(ProductContext);
   
 
   if (loading) return <p>Loading...</p>;
@@ -13,7 +14,7 @@ export default function DisplayAll() {
 
   return (
     <>
-      {products && products.map((product) => (
+      {searchResults && searchResults.map((product) => (
         <ProductCard
           key={product.id}
           image={product.image.url}
