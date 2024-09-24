@@ -11,9 +11,9 @@ export function ProductProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    if (!products) return; // Wait until products are loaded
+    if (!products) return;
     if (searchQuery === '') {
-      setSearchResults(products); // If no search query, show all products
+      setSearchResults(products);
     } else {
       setSearchResults(
         products.filter((product) =>

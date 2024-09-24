@@ -5,7 +5,7 @@ function Home() {
 
   return (
     <main>
-      <section className="container mx-auto">
+      <section className="container mx-auto min-h-[66vh]">
         <SingleProduct />
       </section>
     </main>

@@ -21,10 +21,12 @@ function SingleProduct() {
   if (!product) return <p>Product not found</p>;
 
   return (
-    <div>
-      <div className="flex">
-        <img src={product.image.url} alt={product.title} className="w-1/3" />
-        <div className="ml-6">
+    <div className="">
+      <div className="flex justify-center">
+        <img src={product.image.url} alt={product.title} 
+        className="w-1/3 max-h-[25rem] object-cover rounded-md" 
+        />
+        <div className="ml-6 max-w-md">
           <h1 className="text-3xl font-bold">{product.title}</h1>
           <p className="text-lg mt-4">{product.description}</p>
           <p className="text-2xl font-bold mt-4">${product.price}</p>
