@@ -29,6 +29,10 @@ body {
   max-width: 1440px;
 }
 
+main {
+  padding-top: 4rem;
+}
+
 section {
   width: 100%;
   margin: 4rem 0rem;
