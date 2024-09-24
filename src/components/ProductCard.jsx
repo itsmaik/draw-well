@@ -1,39 +1,43 @@
-function ProductCard({ image, title, description, discount, price, discountedPrice }) {
+import { Link } from "react-router-dom";
+
+function ProductCard({ id, image, title, alt, description, discount, price, discountedPrice }) {
   return (
     <div className=" bg-stone-50 max-w-xs hover:scale-105 ease-in-out duration-500">
-      {/* Product Image */}
-      <div className="relative">
-        <img
-          src={image}
-          alt={title}
-          className="w-full min-h-72 max-h-72 object-cover rounded-md"
-        />
-        {/* Discount Badge */}
-        {discount && (
-          <span className="absolute top-2 right-2 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-full">
-            {discount}
-          </span>
-        )}
-      </div>
-
-      {/* Product Details */}
-      <div className="mt-4 px-2">
-        <p className="text-gray-500 text-sm">{title}</p>
-        <h2 className="text-gray-800 font-semibold">{description}</h2>
-
-        {/* Price Section */}
-        {discountedPrice ? (
-          <div className="mt-2">
-            <p className="text-gray-400 line-through">{price}</p>
-            <p className="text-lg font-bold text-red-600">{discountedPrice}</p>
-          </div>
-        )
-        :
-        <div className="mt-2">
-          <p className="text-lg font-bold text-black-600">{price}</p>
+      <Link to={`/product/${id}`}>
+        {/* Product Image */}
+        <div className="relative">
+          <img
+            src={image}
+            alt={alt}
+            className="w-full min-h-72 max-h-72 object-cover rounded-md"
+          />
+          {/* Discount Badge */}
+          {discount && (
+            <span className="absolute top-2 right-2 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-full">
+              {discount}
+            </span>
+          )}
         </div>
-        }
-      </div>
+
+        {/* Product Details */}
+        <div className="mt-4 px-2">
+          <p className="text-gray-500 text-sm">{title}</p>
+          <h2 className="text-gray-800 font-semibold">{description}</h2>
+
+          {/* Price Section */}
+          {discountedPrice ? (
+            <div className="mt-2">
+              <p className="text-gray-400 line-through">{price}</p>
+              <p className="text-lg font-bold text-red-600">{discountedPrice}</p>
+            </div>
+          )
+          :
+          <div className="mt-2">
+            <p className="text-lg font-bold text-black-600">{price}</p>
+          </div>
+          }
+        </div>
+      </Link>
     </div>
   );
 }
