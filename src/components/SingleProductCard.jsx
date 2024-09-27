@@ -1,9 +1,17 @@
 import StarRating from "./StarRating";
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductProvider";
 import calculateDiscount from "../utils/calculateDiscount";
 import placeHolderImg from '../assets/ecommerce.avif';
 
 export default function SingleProductCard({product}) {
+
+  const { addToCart } = useContext(ProductContext);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   const discount = product.price > product.discountedPrice && `${calculateDiscount(product.price, product.discountedPrice)}% off`;
 
@@ -34,7 +42,7 @@ export default function SingleProductCard({product}) {
             )}
           </div>
 
-          <button className="bg-orange-500 text-white py-2 px-6 mt-4 rounded w-2/3 flex text-xl items-center justify-center font-semibold" aria-label="Add to cart">Add to Cart<span> <FaShoppingCart className="text-white ml-3" /></span></button>
+          <button onClick={handleAddToCart} className="bg-orange-500 text-white py-2 px-6 mt-4 rounded w-2/3 flex text-xl items-center justify-center font-semibold" aria-label="Add to cart">Add to Cart<span> <FaShoppingCart className="text-white ml-3" /></span></button>
         </div>
       </div>
     </div>
