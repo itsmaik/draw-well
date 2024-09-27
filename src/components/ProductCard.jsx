@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import calculateDiscount from "../utils/calculateDiscount";
+import placeHolderImg from '../assets/ecommerce.avif';
 
 function ProductCard({ products }) {
 
@@ -13,8 +14,8 @@ function ProductCard({ products }) {
         {/* Product Image */}
         <div className="relative">
           <img
-            src={products.image.url}
-            alt={products.image.alt}
+            src={products.image.url || placeHolderImg}
+            alt={products.image.alt || products.title}
             className="w-full min-h-72 max-h-72 object-cover rounded-md"
           />
           {/* Discount Badge */}
