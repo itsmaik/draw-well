@@ -1,7 +1,7 @@
 import SingleProduct from "../components/SingleProduct";
 
 
-function Home() {
+function ProductDetail() {
 
   return (
     <main>
@@ -12,4 +12,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default ProductDetail;
