@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductProvider";
+import StarRating from "./StarRating";
 
 function SingleProduct() {
   const { id } = useParams();
@@ -23,11 +24,12 @@ function SingleProduct() {
   return (
     <div className="">
       <div className="flex justify-center">
-        <img src={product.image.url} alt={product.title} 
-        className="w-1/3 max-h-[25rem] object-cover rounded-md" 
+        <img src={product.image.url} alt={product.image.alt} 
+        className="w-1/3 min-h-[25rem] max-h-[25rem] object-cover rounded-md" 
         />
-        <div className="ml-6 max-w-md">
+        <div className="pl-12 max-w-md">
           <h1 className="text-3xl font-bold">{product.title}</h1>
+          <StarRating rating={product.rating} />
           <p className="text-lg mt-4">{product.description}</p>
           <p className="text-2xl font-bold mt-4">${product.price}</p>
           {product.discountedPrice && (
