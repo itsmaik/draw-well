@@ -7,9 +7,9 @@ function StarRating({ rating }) {
     const stars = [];
     for (let i = 1; i <= totalStars; i++) {
       if (i <= rating) {
-        stars.push(<FaStar key={i} className="text-gray-600 mt-2 text-xl" />); // Filled star
+        stars.push(<FaStar key={i} className="text-gray-600 mt-3 text-xl" />); // Filled star
       } else {
-        stars.push(<FaRegStar key={i} className="text-gray-600 mt-2 text-xl" />); // Empty star
+        stars.push(<FaRegStar key={i} className="text-gray-600 mt-3 text-xl" />); // Empty star
       }
     }
     return stars;
