@@ -34,13 +34,13 @@ function ProductCard({ products }) {
           {/* Price Section */}
           {discountedPrice ? (
             <div className="mt-2">
-              <p className="text-gray-400 line-through">{products.price}</p>
-              <p className="text-lg font-bold text-red-600">{products.discountedPrice}</p>
+              <p className="text-gray-400 line-through">${products.price}</p>
+              <p className="text-lg font-bold text-red-600">${products.discountedPrice}</p>
             </div>
           )
           :
           <div className="mt-2">
-            <p className="text-lg font-bold text-black-600">{products.price}</p>
+            <p className="text-lg font-bold text-black-600">${products.price}</p>
           </div>
           }
         </div>

@@ -96,9 +96,10 @@ export default function CartSidebar({ isOpen, onClose }) {
           <p>${totalToPay.toFixed(2)}</p>
         </div>
 
-        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4">
+        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4 font-semibold text-xl">
           Go to Checkout
         </button>
+
       </div>
     </div>
   );
