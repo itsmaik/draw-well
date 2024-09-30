@@ -5,7 +5,7 @@ function ProductDetail() {
 
   return (
     <main>
-      <section className="container mx-auto min-h-[66vh]">
+      <section className="container mx-auto">
         <SingleProduct />
       </section>
     </main>

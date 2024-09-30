@@ -18,7 +18,7 @@ export default function SingleProductCard({product}) {
   const discountedPrice = product.price > product.discountedPrice &&  `$${product.discountedPrice}`;
 
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <div className="flex justify-center">
         <img 
         src={product.image.url || placeHolderImg} 

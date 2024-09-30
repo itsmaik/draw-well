@@ -12,7 +12,6 @@ export default function CartSidebar({ isOpen, onClose }) {
   );
   const totalToPay = totalPrice - totalDiscount;
 
-
   const handleIncreaseQuantity = (item) => {
     addToCart(item);
   };
@@ -27,7 +26,7 @@ export default function CartSidebar({ isOpen, onClose }) {
     <div
       className={`fixed top-0 right-0 h-full bg-white shadow-lg transition-transform transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } w-80 z-50`}
+      } w-80 z-50 flex flex-col`}
     >
       <div className="p-4 flex justify-between items-center">
         <h2 className="text-2xl font-bold">Shopping Cart</h2>
@@ -36,7 +35,8 @@ export default function CartSidebar({ isOpen, onClose }) {
         </button>
       </div>
 
-      <div className="p-4">
+      {/* Scrollable Cart Items */}
+      <div className="flex-grow overflow-y-auto p-4">
         {cartItems.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
@@ -82,7 +82,7 @@ export default function CartSidebar({ isOpen, onClose }) {
       </div>
 
       {/* Pricing Summary */}
-      <div className="p-4 border-t">
+      <div className="p-4 border-t bg-white sticky bottom-0">
         <div className="flex justify-between">
           <p>Purchase price</p>
           <p>${totalPrice.toFixed(2)}</p>
@@ -96,10 +96,9 @@ export default function CartSidebar({ isOpen, onClose }) {
           <p>${totalToPay.toFixed(2)}</p>
         </div>
 
-        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4 font-semibold text-xl">
+        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4">
           Go to Checkout
         </button>
-
       </div>
     </div>
   );
