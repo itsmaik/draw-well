@@ -1,6 +1,6 @@
 import Logo from './Logo'
 import SearchBar from "./SearchBar";
-import Favorites from "./Favorites";
+import Contact from "./ContactUs";
 import ShoppingCart from './ShoppingCart';
 import { useState } from 'react';
 import CartSidebar from './CartSideBar';
@@ -19,7 +19,7 @@ function Navbar() {
         <SearchBar />
 
         <div className="flex items-center space-x-6">
-          <Favorites />
+          <Contact />
           <ShoppingCart onClick={toggleCart}/>
         </div>
         <CartSidebar isOpen={isCartOpen} onClose={toggleCart} />
