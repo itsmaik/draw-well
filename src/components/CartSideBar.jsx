@@ -1,8 +1,15 @@
 import { FaTimes, FaTrash } from "react-icons/fa";
 import useCartCalculations from "../hooks/useCartCalculations";
+import { useNavigate } from "react-router-dom";
 
 export default function CartSidebar({ isOpen, onClose }) {
   const { cartItems, removeFromCart, totalPrice, totalDiscount, totalToPay, handleIncreaseQuantity,handleDecreaseQuantity, } = useCartCalculations();
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
 
 
   return (
@@ -79,7 +86,7 @@ export default function CartSidebar({ isOpen, onClose }) {
           <p>${totalToPay.toFixed(2)}</p>
         </div>
 
-        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4 text-xl font-semibold">
+        <button className="bg-orange-500 text-white w-full py-2 rounded mt-4 text-xl font-semibold" onClick={handleCheckout}>
           Go to Checkout
         </button>
       </div>

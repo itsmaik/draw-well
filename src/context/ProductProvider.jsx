@@ -52,7 +52,7 @@ export function ProductProvider({ children }) {
   };
 
   return (
-    <ProductContext.Provider value={{ products, searchResults, loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart }}>
+    <ProductContext.Provider value={{ products, searchResults, loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart, setCartItems }}>
       {children}
     </ProductContext.Provider>
   );
