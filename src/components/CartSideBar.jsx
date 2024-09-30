@@ -1,26 +1,9 @@
-import { useContext } from "react";
-import { ProductContext } from "../context/ProductProvider";
 import { FaTimes, FaTrash } from "react-icons/fa";
+import useCartCalculations from "../hooks/useCartCalculations";
 
 export default function CartSidebar({ isOpen, onClose }) {
-  const { cartItems, addToCart, removeFromCart, updateCartItemQuantity } = useContext(ProductContext);
+  const { cartItems, removeFromCart, totalPrice, totalDiscount, totalToPay, handleIncreaseQuantity,handleDecreaseQuantity, } = useCartCalculations();
 
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const totalDiscount = cartItems.reduce(
-    (sum, item) => sum + (item.price - item.discountedPrice) * item.quantity,
-    0
-  );
-  const totalToPay = totalPrice - totalDiscount;
-
-  const handleIncreaseQuantity = (item) => {
-    addToCart(item);
-  };
-
-  const handleDecreaseQuantity = (item) => {
-    if (item.quantity > 1) {
-      updateCartItemQuantity(item.id, item.quantity - 1);
-    }
-  };
 
   return (
     <div
