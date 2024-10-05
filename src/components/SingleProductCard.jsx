@@ -1,6 +1,6 @@
 import StarRating from "./StarRating";
 import { FaShoppingCart } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductProvider";
 import placeHolderImg from '../assets/ecommerce.avif';
 import Review from "./Review";
@@ -8,9 +8,12 @@ import Review from "./Review";
 export default function SingleProductCard({product}) {
 
   const { addToCart } = useContext(ProductContext);
+  const [feedback, setFeedback] = useState(null);
 
   const handleAddToCart = () => {
     addToCart(product);
+    setFeedback("Product added to cart!");
+    setTimeout(() => setFeedback(null), 1000);
   };
 
   const discountedPrice = product.price > product.discountedPrice &&  `$${product.discountedPrice}`;
@@ -40,7 +43,13 @@ export default function SingleProductCard({product}) {
             )}
           </div>
 
-          <button onClick={handleAddToCart} className="bg-orange-500 text-white py-2 px-6 mt-4 rounded w-2/3 flex text-xl items-center justify-center font-semibold" aria-label="Add to cart">Add to Cart<span> <FaShoppingCart className="text-white ml-3" /></span></button>
+          <div className=""> 
+            <button onClick={handleAddToCart} disabled={feedback} className={`${
+              feedback ? "bg-green-500" : "bg-orange-500"
+            } text-white py-2 px-6 mt-4 rounded w-full flex text-xl items-center justify-center font-semibold`} aria-label="Add to cart">{feedback ? " Product added" : "Add to Cart"}<span> <FaShoppingCart className="text-white ml-3" /></span>
+            </button>
+          </div> 
+          
         </div>
       </div>
 
