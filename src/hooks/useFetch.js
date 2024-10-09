@@ -12,8 +12,10 @@ export default function useFetch(id = "") {
     const signal = controller.signal;
 
     async function fetchData() {
+      setLoading(true)
+      setError(null)
+      
       try {
-        setLoading(true);
         const url = id ? `${baseUrl}/online-shop/${id}` : `${baseUrl}/online-shop`;
         const res = await fetch(url, { signal });
         if (!res.ok) {
@@ -26,7 +28,7 @@ export default function useFetch(id = "") {
           setError(err.message);
         }
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     }
 
