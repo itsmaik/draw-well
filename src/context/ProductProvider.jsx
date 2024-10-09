@@ -6,28 +6,25 @@ export const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
 
-  const { data: products, loading: fetchLoading, error } = useFetch();
+  const { data: products, loading, error } = useFetch();
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState();
   const [cartItems, setCartItems] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!products) return;
 
     if (products) {
-      setLoading(true);
-
       if (searchQuery === '') {
         setSearchResults(products);
       } else {
-        setSearchResults(
+        setSearchResults (
           products.filter((product) =>
-            product.title.toLowerCase().includes(searchQuery.toLowerCase())
+            product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.description.toLowerCase().includes(searchQuery.toLowerCase())
           )
         );
       }
-      setLoading(false);
     }
   }, [searchQuery, products]);
 
@@ -59,7 +56,7 @@ export function ProductProvider({ children }) {
   };
 
   return (
-    <ProductContext.Provider value={{ products, searchResults, loading: fetchLoading || loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart, setCartItems }}>
+    <ProductContext.Provider value={{ products, searchResults, loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart, setCartItems }}>
       {children}
     </ProductContext.Provider>
   );
