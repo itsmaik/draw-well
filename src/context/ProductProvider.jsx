@@ -12,21 +12,21 @@ export function ProductProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    if (!products) return;
+    if (!products || loading) return;
 
-    if (products) {
-      if (searchQuery === '') {
-        setSearchResults(products);
-      } else {
-        setSearchResults (
-          products.filter((product) =>
-            product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            product.description.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-        );
-      }
+    const trimmedQuery = searchQuery.trim().toLowerCase();
+
+    if (trimmedQuery === "") {
+      setSearchResults(products);
+    } else {
+      const filteredProducts = products.filter(
+        (product) =>
+          product.title.toLowerCase().includes(trimmedQuery) ||
+          product.description.toLowerCase().includes(trimmedQuery)
+      );
+      setSearchResults(filteredProducts);
     }
-  }, [searchQuery, products]);
+  }, [searchQuery, products, loading]);
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
@@ -56,7 +56,7 @@ export function ProductProvider({ children }) {
   };
 
   return (
-    <ProductContext.Provider value={{ products, searchResults, loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart, setCartItems }}>
+    <ProductContext.Provider value={{ searchQuery, products, searchResults, loading, error, setSearchQuery, cartItems, addToCart, updateCartItemQuantity,removeFromCart, setCartItems }}>
       {children}
     </ProductContext.Provider>
   );
