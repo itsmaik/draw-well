@@ -23,9 +23,9 @@ export default function SearchBar () {
         onChange={handleInputChange}
         className="bg-transparent w-full px-4 py-2 focus:outline-none"
       />
-      <button className="bg-orange-500 text-white py-3 px-6 rounded-full m-1">
+      <span className="bg-orange-500 text-white py-3 px-6 rounded-full m-1">
         <FaSearch />
-      </button>
+      </span>
     </div>
   )
 }
