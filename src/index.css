@@ -22,9 +22,18 @@
 }
 
 body {
-  margin: 0;
-  display: flex;
+  margin: 0 auto;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 1440px;
+}
+
+main {
+  padding-top: 3rem;
+}
+
+section {
+  width: 100%;
+  margin: 4rem 0rem;
 }
