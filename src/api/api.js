@@ -1,1 +1,1 @@
-export const baseUrl = "https://v2.api.noroff.dev"
+export const baseUrl = import.meta.env.VITE_API_URL;
