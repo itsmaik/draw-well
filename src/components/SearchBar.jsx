@@ -2,8 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductProvider";
 
-export default function SearchBar () {
-
+export default function SearchBar() {
   const { setSearchQuery } = useContext(ProductContext);
   const [query, setQuery] = useState("");
 
@@ -14,7 +13,7 @@ export default function SearchBar () {
   };
 
   return (
-    <div className="flex items-center w-1/2 bg-gray-100 rounded-full">
+    <div className="flex items-center w-full md:w-1/2 bg-gray-100 rounded-full">
       <input
         aria-label="Search Products"
         type="text"
@@ -27,5 +26,5 @@ export default function SearchBar () {
         <FaSearch />
       </span>
     </div>
-  )
+  );
 }
