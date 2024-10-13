@@ -5,6 +5,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Providers from "./context/ProductProvider";
 import ContactPage from "./pages/ContactPage"
 import CheckoutPage from "./pages/CheckoutPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Router>
