@@ -13,7 +13,7 @@ export default function DisplayAll() {
 
   if (searchResults.length === 0) {
     return (
-      <div className="flex justify-center items-center min-h-80 fixed top-0 min-w-full bg-slate-50">
+      <div className="flex justify-center items-center min-h-80 min-w-full bg-slate-50">
         <p>No product found</p>
       </div>
     );
