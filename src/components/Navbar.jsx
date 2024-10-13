@@ -14,7 +14,7 @@ function Navbar() {
   const toggleCart = () => setIsCartOpen(!isCartOpen);
 
   return (
-    <nav className="bg-white p-4 shadow-md fixed top-0 w-full max-w-[1440px] z-50">
+    <nav className="bg-white p-5 shadow-md fixed top-0 w-full max-w-[1440px] z-50">
       <div className="container mx-auto flex items-center justify-between">
         <Logo />
 
